@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* === Colors === */
+  --color-primary: #00d992;
+  --color-primary-soft: #2fd6a1;
+  --color-primary-deep: #10b981;
+
+  --color-canvas: #101010;
+  --color-canvas-soft: #1a1a1a;
+  --color-canvas-text-soft: #f5f6f7;
+
+  --color-hairline: #3d3a39;
+  --color-hairline-soft: #b8b3b0;
+
+  --color-ink: #f2f2f2;
+  --color-ink-strong: #ffffff;
+  --color-body: #bdbdbd;
+  --color-mute: #8b949e;
+
+  /* === Border Radius === */
+  --radius-none: 0px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-pill: 9999px;
+
+  /* === Spacing === */
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 24px;
+  --spacing-3xl: 32px;
+  --spacing-4xl: 40px;
+  --spacing-5xl: 48px;
+  --spacing-6xl: 64px;
+
+  /* === Fonts === */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "calt", "rlig";
+}
