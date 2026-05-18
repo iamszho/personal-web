@@ -1,3 +1,5 @@
+"use client";
+
 import { ButtonHTMLAttributes } from "react";
 
 type Variant = "primary" | "outline" | "ghost";
@@ -6,13 +8,32 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant;
 }
 
-const variants: Record<Variant, string> = {
-  primary:
-    "bg-[#00d992] text-[#101010] font-semibold text-base leading-6 hover:opacity-90 active:opacity-80",
-  outline:
-    "bg-[#101010] text-[#f2f2f2] border border-[#3d3a39] font-semibold text-base leading-6 hover:border-[#f2f2f2]/30 active:opacity-80",
-  ghost:
-    "bg-transparent text-[#2fd6a1] font-semibold text-base leading-6 hover:text-[#00d992] active:opacity-80",
+// Ahora cada variante define 3 capas: el contenedor base, el slider animado, y el texto.
+const variants: Record<Variant, { button: string; slider: string; text: string }> = {
+  primary: {
+    // Fondo verde.
+    button: "bg-primary border border-primary",
+    // Se desliza un fondo oscuro.
+    slider: "bg-canvas",
+    // El texto pasa de oscuro a verde brillante.
+    text: "text-canvas group-hover:text-primary",
+  },
+  outline: {
+    // Fondo oscuro con borde sutil.
+    button: "bg-canvas border border-hairline",
+    // Se desliza el fondo verde.
+    slider: "bg-primary",
+    // El texto pasa de blanco a oscuro.
+    text: "text-ink group-hover:text-canvas",
+  },
+  ghost: {
+    // Sin fondo.
+    button: "bg-transparent",
+    // Se desliza un gris súper sutil.
+    slider: "bg-canvas-soft",
+    // El texto pasa de un verde suave a un verde intenso.
+    text: "text-primary-soft group-hover:text-primary",
+  },
 };
 
 export default function Button({
@@ -24,18 +45,32 @@ export default function Button({
   return (
     <button
       className={`
-        inline-flex items-center justify-center
-        px-4 py-3
-        rounded-none
-        cursor-pointer transition-all duration-150
-        focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00d992]
+        group relative overflow-hidden inline-flex items-center justify-center
+        px-4 py-3 rounded-none
+        cursor-pointer
+        focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary
         disabled:opacity-50 disabled:cursor-not-allowed
-        ${variants[variant]}
+        ${variants[variant].button}
         ${className}
       `}
       {...props}
     >
-      {children}
+      <div
+        className={`
+          absolute inset-0 transition-transform duration-300 ease-in-out
+          origin-right scale-x-0 group-hover:origin-left group-hover:scale-x-100
+          ${variants[variant].slider}
+        `}
+      />
+      <span
+        className={`
+          relative z-10 block transition-colors duration-300
+          font-semibold text-base leading-6
+          ${variants[variant].text}
+        `}
+      >
+        {children}
+      </span>
     </button>
   );
 }
