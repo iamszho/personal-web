@@ -1,0 +1,19 @@
+
+[QUIEN SOY]
+Soy Angel Manuel Sánchez Hipólito, tengo 22 años. 
+
+
+[EDUCACION]
+Ingeniero en Informática de la Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas IPN
+
+
+[AREA DE INTERES]
+Mi area de interes se centra en el desarrollo de aplicaciones y sistemas con enfoque en IA & Backend. 
+
+
+[OBJETIVO]
+Busco desarrollar software listo para producción, automatizar procesos y crear soluciones que realmente aporten valor.
+
+
+[HOBBIES]
+Amante de los gatos, el basquetbol y el cafe. Siempre disfruto pasar tiempo con mi familia y amigos.

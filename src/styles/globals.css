@@ -39,7 +39,7 @@
   --spacing-6xl: 64px;
 
   /* === Fonts === */
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-sans: var(--font-hanken), system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 

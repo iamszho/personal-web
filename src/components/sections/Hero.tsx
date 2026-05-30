@@ -1,30 +1,35 @@
 import Button from "@/components/Button";
+import VantaBackground from "@/components/VantaBackground";
 import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="bg-canvas px-8 pt-24 pb-20 flex flex-col items-center text-center max-w-[1400px] mx-auto">
+    <section className="relative bg-canvas w-full min-h-screen overflow-hidden">
+      <VantaBackground />
 
-      {/* Headline */}
-      <h1 className="text-[60px] font-normal leading-[60px] tracking-[-0.65px] text-ink-strong max-w-3xl mb-6 max-md:text-[32px] max-md:leading-[36px]">
-        Building things for the web
-      </h1>
+      <div className="relative z-10 max-w-[1400px] mx-auto px-8 pt-36 pb-32 flex flex-col items-center text-center">
 
-      {/* Supporting copy */}
-      <p className="text-body text-lg leading-7 max-w-xl mb-10">
-        I design and develop products that live at the intersection of clean engineering and thoughtful design.
-      </p>
+        {/* Headline */}
+        <h1 className="text-[96px] font-normal leading-[104px] tracking-[-2px] text-ink-strong mb-10 max-md:text-[48px] max-md:leading-[56px]">
+          Hola, soy Angel Manuel
+        </h1>
 
-      {/* CTAs */}
-      <div className="flex flex-wrap gap-4 justify-center">
-        <Button variant="primary">
-          <Link href="/projects">View Projects</Link>
-        </Button>
-        <Button variant="outline">
-          <Link href="/about-me">About Me</Link>
-        </Button>
+        {/* Supporting copy */}
+        <p className="text-body text-2xl leading-10 mb-16 max-md:text-lg max-md:leading-8">
+          De pipelines de datos a productos en producción. Transformo problemas complejos en sistemas que funcionan.
+        </p>
+
+        {/* CTAs */}
+        <div className="flex flex-wrap gap-4 justify-center">
+          <Button variant="primary">
+            <Link href="/projects">View Projects</Link>
+          </Button>
+          <Button variant="outline">
+            <Link href="/about-me">About Me</Link>
+          </Button>
+        </div>
+
       </div>
-
     </section>
   );
 }
